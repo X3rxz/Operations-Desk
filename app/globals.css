@@ -52,7 +52,9 @@ main > div > section:first-child { animation: slide-up .65s .08s ease both; }
 .document-shell { animation: slide-up .65s .16s ease both; }
 @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes slide-up { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+.button-bounce { animation: button-bounce .75s ease-in-out infinite; }
+@keyframes button-bounce { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-3px) scale(1.02); } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } .button-bounce { animation: none !important; } }
 .meeting-pdf-template { position: fixed; left: -10000px; top: 0; width: 794px; min-height: 1123px; padding: 48px 52px; background: white; color: #111; font-family: Arial, sans-serif; font-size: 11px; line-height: 1.35; }
 .pdf-brand { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 25px; color: #4b4b4b; }
 .pdf-brand strong { font-size: 25px; line-height: 1.08; }
