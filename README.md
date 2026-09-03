@@ -21,7 +21,15 @@ Minuteform is a Next.js workspace that turns pasted meeting notes, images, and v
 
 ## Run locally from GitHub
 
-Prerequisites: Node.js 20 or newer, pnpm, and Git.
+The quickest path is to clone the repository, install dependencies, and start the local Next.js server from your device’s terminal.
+
+Prerequisites:
+
+- Node.js 20 or newer — verify with `node --version`
+- Git — verify with `git --version`
+- pnpm — install with `corepack enable`, then verify with `pnpm --version`
+
+### macOS or Linux
 
 ```bash
 git clone <your-repository-url>
@@ -31,7 +39,45 @@ cp .env.example .env.local
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). On Windows, copy `.env.example` to `.env.local` using File Explorer or PowerShell instead of `cp`.
+### Windows PowerShell
+
+```powershell
+git clone <your-repository-url>
+cd minuteform
+pnpm install
+Copy-Item .env.example .env.local
+pnpm dev
+```
+
+The terminal will show a local address, usually [http://localhost:3000](http://localhost:3000). Open that address in a browser. Keep the terminal running while using the app; press `Ctrl+C` to stop the server.
+
+If pnpm is unavailable, you can use npm instead:
+
+```bash
+npm install
+npm run dev
+```
+
+To run the production build locally:
+
+```bash
+pnpm build
+pnpm start
+```
+
+If port 3000 is already in use, start on another port:
+
+```bash
+pnpm dev -- --port 3001
+```
+
+Then open [http://localhost:3001](http://localhost:3001). On Windows, use `pnpm dev -- --port 3001` in PowerShell as well.
+
+### Environment file
+
+The `.env.local` file is ignored by Git and is only for your device. You can use the app’s pasted-notes fallback without adding a key. To enable image/PDF AI analysis, add the server-side `AI_GATEWAY_API_KEY` value to `.env.local`, then stop and restart `pnpm dev`. Never commit `.env.local` or expose this key in a `NEXT_PUBLIC_*` variable.
+
+Open [http://localhost:3000](http://localhost:3000) after starting the server.
 
 ## Checks
 
