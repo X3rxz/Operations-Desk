@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { jsPDF } from 'jspdf'
 import html2canvas from 'html2canvas'
 import {
@@ -50,6 +50,22 @@ export default function Page() {
   const inputRef = useRef<HTMLInputElement>(null)
   const hasInput = notes.trim().length > 0 || files.length > 0
   const fileLabel = useMemo(() => files.length ? `${files.length} visual source${files.length > 1 ? 's' : ''} ready` : 'Drop image or PDF files here', [files.length])
+
+  useEffect(() => {
+    let previousY = window.scrollY
+    let ticking = false
+    const updateDirection = () => {
+      const currentY = window.scrollY
+      document.body.dataset.scrollDirection = currentY > previousY ? 'down' : currentY < previousY ? 'up' : 'idle'
+      previousY = currentY
+      ticking = false
+    }
+    const onScroll = () => {
+      if (!ticking) { window.requestAnimationFrame(updateDirection); ticking = true }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   const addFiles = (list: FileList | null) => {
     if (!list) return
