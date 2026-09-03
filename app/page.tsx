@@ -76,7 +76,7 @@ export default function Page() {
   const reset = () => { setNotes(''); setFiles([]); setOutput(null); setStatus('') }
 
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <main className="min-h-screen text-foreground">
       <header className="border-b border-border bg-card/80 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
           <div className="flex items-center gap-3"><div className="brand-mark"><Sparkles size={16} /></div><div><p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary">Operations desk</p><p className="font-serif text-lg font-semibold leading-none">Minuteform</p></div></div>
