@@ -20,6 +20,8 @@ type Output = { title: string; date: string; time: string; location: string; att
 
 const sampleNotes = `Weekly Operations Sync\nMarch 14, 2025 · 10:00 AM\nConference Room A\n\nAttendees: Maya Chen, Jordan Lee, Priya Shah, Luis Gomez\n\nWe reviewed the Q2 launch timeline. The website copy is blocked on legal approval, which Priya will follow up on by Friday.\n\nThe team agreed to move the customer beta to April 8. Jordan will share the updated onboarding flow by March 21.\n\nNext sync: March 21 at 10:00 AM.`
 
+const notesTemplate = `Meeting title\nDate · time\nLocation\n\nAttendees: List everyone present\n\nDiscussion:\nSummarize the main topics discussed, context, and open questions.\n\nDecisions:\nList agreements or decisions made by the team.\n\nAction items:\nName — task — deadline\n\nNext meeting: Date and time`
+
 const starter: Output = { title: 'Weekly Operations Sync', date: 'March 14, 2025', time: '10:00 AM', location: 'Conference Room A', attendees: 'Maya Chen, Jordan Lee, Priya Shah, Luis Gomez', discussions: ['Reviewed the Q2 launch timeline.', 'Website copy is blocked on legal approval.'], decisions: ['Move the customer beta launch to April 8.'], actions: ['Priya to follow up on legal approval by Friday.', 'Jordan to share the updated onboarding flow by March 21.'], review: [] }
 
 function formatText(raw: string): Output {
@@ -81,7 +83,7 @@ export default function Page() {
         <section className="space-y-7">
           <div className="space-y-4"><p className="eyebrow">Meeting intelligence / 01</p><h1 className="max-w-xl font-serif text-5xl font-semibold leading-[0.98] tracking-[-0.04em] text-primary sm:text-6xl">From scattered notes to <em className="text-accent">clear action.</em></h1><p className="max-w-md text-base leading-7 text-muted-foreground">Paste notes or upload a photo of the whiteboard. Minuteform turns the visual record into minutes your team can act on.</p></div>
           <div className="input-card">
-            <div className="flex items-center justify-between"><label htmlFor="notes" className="font-mono text-[11px] font-bold uppercase tracking-[0.15em] text-primary">Source notes</label><button onClick={() => setNotes(sampleNotes)} className="text-xs font-semibold text-accent hover:underline">Use sample</button></div>
+            <div className="flex items-center justify-between"><label htmlFor="notes" className="font-mono text-[11px] font-bold uppercase tracking-[0.15em] text-primary">Source notes</label><button onClick={() => { setNotes(notesTemplate); setStatus('Template pasted. Replace the guidance with your meeting details.') }} className="text-xs font-semibold text-accent hover:underline">Paste template</button></div>
             <textarea id="notes" value={notes} onChange={(e) => setNotes(e.target.value)} placeholder="Paste meeting notes here…" className="mt-4 min-h-48 w-full resize-y bg-transparent text-sm leading-6 text-foreground outline-none placeholder:text-muted-foreground/60" />
             <div className="mt-4 border-t border-border pt-4">
               <input ref={inputRef} type="file" accept="image/*,application/pdf" multiple className="sr-only" onChange={(e) => addFiles(e.target.files)} />
