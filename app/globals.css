@@ -20,7 +20,8 @@
 :root { color-scheme: dark; --background: #0b1f3a; --foreground: #e9f0f8; --card: #ffffff; --card-foreground: #142b46; --primary: #dcecff; --primary-foreground: #0b1f3a; --muted: #e8f0f8; --muted-foreground: #6b7d91; --border: #d4e0ed; --accent: #3f82e8; --accent-foreground: #ffffff; --radius: 0.7rem; }
 * { @apply border-border; }
 html { background: var(--background); }
-body { @apply bg-background text-foreground font-sans; }
+body { @apply bg-background text-foreground font-sans; background-color: var(--background); background-image: linear-gradient(rgba(111, 161, 224, .055) 1px, transparent 1px), linear-gradient(90deg, rgba(111, 161, 224, .055) 1px, transparent 1px), radial-gradient(circle at 18% 12%, rgba(63, 130, 232, .12), transparent 30%), radial-gradient(circle at 86% 72%, rgba(63, 130, 232, .08), transparent 28%); background-size: 42px 42px, 42px 42px, 100% 100%, 100% 100%; animation: blueprint-drift 24s linear infinite; }
+@keyframes blueprint-drift { from { background-position: 0 0, 0 0, 0 0, 0 0; } to { background-position: 42px 42px, 42px 42px, 0 0, 0 0; } }
 button { cursor: pointer; }
 button:disabled { cursor: not-allowed; opacity: .52; }
 .brand-mark { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 9px; color: var(--primary-foreground); background: var(--accent); }
@@ -55,7 +56,7 @@ main > div > section:first-child { animation: slide-up .65s .08s ease both; }
 @keyframes slide-up { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 .button-bounce { animation: button-bounce .75s ease-in-out infinite; }
 @keyframes button-bounce { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-3px) scale(1.02); } }
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } .button-bounce { animation: none !important; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } .button-bounce { animation: none !important; } body { animation: none !important; } }
 .meeting-pdf-template { position: fixed; left: -10000px; top: 0; width: 794px; min-height: 1123px; padding: 48px 52px; background: white; color: #111; font-family: Arial, sans-serif; font-size: 11px; line-height: 1.35; }
 .pdf-brand { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 25px; color: #4b4b4b; }
 .pdf-brand strong { font-size: 25px; line-height: 1.08; }
