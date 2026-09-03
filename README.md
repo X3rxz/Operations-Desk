@@ -19,28 +19,34 @@ Minuteform is a Next.js workspace that turns pasted meeting notes, images, and v
 - jsPDF and html2canvas for browser PDF export
 - Lucide React icons
 
-## Local development
+## Run locally from GitHub
 
-Use Node.js 20 or newer and pnpm.
+Prerequisites: Node.js 20 or newer, pnpm, and Git.
 
 ```bash
+git clone <your-repository-url>
+cd minuteform
 pnpm install
+cp .env.example .env.local
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:3000](http://localhost:3000). On Windows, copy `.env.example` to `.env.local` using File Explorer or PowerShell instead of `cp`.
 
 ## Checks
 
 ```bash
 pnpm typecheck
-pnpm lint
 pnpm build
+# or run both together
+pnpm validate
 ```
 
 ## AI configuration
 
-Text notes use a local deterministic fallback so the interface can be explored without AI credentials. Image/PDF analysis uses the server route at `app/api/format-motm/route.ts` and requires the project’s Vercel AI Gateway configuration when deployed. Do not commit environment files or provider keys.
+The app can be explored locally without credentials: pasted notes use a deterministic fallback. To enable image/PDF analysis, add your server-side `AI_GATEWAY_API_KEY` to `.env.local`, then restart the dev server. Never commit `.env.local`, place the key in a `NEXT_PUBLIC_*` variable, or paste it into client-side code.
+
+For Vercel deployment, configure the AI Gateway integration or the same server-side variable in the project environment before using visual analysis. If the visual request is unavailable, the app reports the fallback behavior rather than blocking the local text workflow.
 
 ## Upload notes
 
