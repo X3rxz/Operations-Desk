@@ -28,7 +28,9 @@ button:disabled { cursor: not-allowed; opacity: .52; }
 .eyebrow { color: var(--accent); font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
 .input-card, .document-shell { border: 1px solid var(--border); background: var(--card); border-radius: 14px; box-shadow: 0 18px 40px rgba(2, 12, 28, .22); }
 .input-card { padding: 20px; }
-.input-card .text-primary, .document-shell .text-primary, .file-chip { color: var(--card-foreground); }
+.input-card .text-primary, .document-shell .text-primary, .file-chip, .input-card textarea, .document-shell .text-foreground { color: var(--card-foreground); }
+.input-card textarea { caret-color: var(--accent); }
+.input-card textarea::placeholder { color: var(--muted-foreground); }
 .upload-zone { display: flex; min-height: 86px; align-items: center; gap: 14px; border: 1px dashed #a9bfd6; border-radius: 10px; padding: 15px; background: #f5f9fd; transition: background .2s, border-color .2s, transform .2s; }
 .upload-zone:hover { border-color: var(--accent); background: #eaf3ff; transform: translateY(-2px); }
 .file-chip { display: flex; align-items: center; gap: 7px; border: 1px solid var(--border); border-radius: 7px; padding: 6px 8px; font-size: 11px; background: #f8fbff; }
