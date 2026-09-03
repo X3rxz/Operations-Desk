@@ -53,4 +53,19 @@ main > div > section:first-child { animation: slide-up .65s .08s ease both; }
 @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes slide-up { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+.meeting-pdf-template { position: fixed; left: -10000px; top: 0; width: 794px; min-height: 1123px; padding: 48px 52px; background: white; color: #111; font-family: Arial, sans-serif; font-size: 11px; line-height: 1.35; }
+.pdf-brand { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 25px; color: #4b4b4b; }
+.pdf-brand strong { font-size: 25px; line-height: 1.08; }
+.pdf-brand small { display: block; margin-top: 8px; font-size: 7px; }
+.pdf-brand img { width: 72px; height: 72px; object-fit: cover; object-position: right top; }
+.meeting-pdf-template h1 { margin: 0 0 22px; text-align: center; font-size: 15px; text-decoration: underline; }
+.meeting-pdf-template table { width: 100%; border-collapse: collapse; margin-bottom: 16px; }
+.meeting-pdf-template th, .meeting-pdf-template td { border: 1px solid #111; padding: 6px 7px; text-align: left; vertical-align: top; }
+.meeting-pdf-template th { font-weight: 700; }
+.meeting-pdf-template td:first-child { width: 25%; }
+.pdf-time { float: right; }
+.pdf-tall { height: 115px; }
+.action-table td:first-child { width: 35%; }
+.action-table td { height: 70px; }
+.meeting-pdf-template i { font-weight: 400; }
 @media (max-width: 640px) { .document-shell { margin-inline: -1px; } }
