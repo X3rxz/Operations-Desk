@@ -79,13 +79,13 @@ export default function Page() {
     <main className="min-h-screen text-foreground">
       <header className="border-b border-border bg-card/80 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-          <div className="flex items-center gap-3"><div className="brand-mark"><Sparkles size={16} /></div><div><p className="hover-bounce-text font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary">Operations desk</p><p className="hover-bounce-text font-serif text-lg font-semibold leading-none">Minuteform</p></div></div>
-          <div className="hover-bounce-text hidden items-center gap-2 text-xs text-muted-foreground sm:flex"><span className="status-dot" /> Secure workspace <ArrowUpRight size={14} /></div>
+          <div className="flex items-center gap-3"><div className="brand-mark"><Sparkles size={16} /></div><div><p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary">Operations desk</p><p className="font-serif text-lg font-semibold leading-none">Minuteform</p></div></div>
+          <div className="hidden items-center gap-2 text-xs text-muted-foreground sm:flex"><span className="status-dot" /> Secure workspace <ArrowUpRight size={14} /></div>
         </div>
       </header>
       <div className="mx-auto grid max-w-7xl gap-8 px-5 py-10 lg:grid-cols-[minmax(360px,0.82fr)_minmax(520px,1.18fr)] lg:px-8 lg:py-14">
         <section className="space-y-7">
-          <div className="space-y-4"><p className="hover-bounce-text eyebrow">Meeting intelligence / 01</p><h1 className="hover-bounce-text max-w-xl font-serif text-5xl font-semibold leading-[0.98] tracking-[-0.04em] text-primary sm:text-6xl">From scattered notes to <em className="text-accent">clear action.</em></h1><p className="hover-bounce-text max-w-md text-base leading-7 text-muted-foreground">Paste notes or upload a photo of the whiteboard. Minuteform turns the visual record into minutes your team can act on.</p></div>
+          <div className="space-y-4"><p className="eyebrow">Meeting intelligence / 01</p><h1 className="max-w-xl font-serif text-5xl font-semibold leading-[0.98] tracking-[-0.04em] text-primary sm:text-6xl">From scattered notes to <em className="text-accent">clear action.</em></h1><p className="max-w-md text-base leading-7 text-muted-foreground">Paste notes or upload a photo of the whiteboard. Minuteform turns the visual record into minutes your team can act on.</p></div>
           <div className="input-card">
             <div className="flex items-center justify-between"><label htmlFor="notes" className="font-mono text-[11px] font-bold uppercase tracking-[0.15em] text-primary">Source notes</label><button onClick={() => { setNotes(notesTemplate); setStatus('Template pasted. Replace the guidance with your meeting details.') }} className="text-xs font-semibold text-accent hover:underline">Paste template</button></div>
             <textarea id="notes" value={notes} onChange={(e) => setNotes(e.target.value)} placeholder="Paste meeting notes here…" className="mt-4 min-h-48 w-full resize-y bg-transparent text-sm leading-6 text-foreground outline-none placeholder:text-muted-foreground/60" />
